@@ -4,11 +4,11 @@ namespace SharedLib.Domain.Messages.Integration.OrderPlaced
 {
     public class OrderPlacedIntegrationEvent : IntegrationEvent
     {
-        public OrderPlacedIntegrationEvent(Guid customerId)
+        public OrderPlacedIntegrationEvent(string customerId)
         {
-            AggregateId = customerId;
+            AggregateId = Guid.Parse(customerId);
             CustomerId = customerId;
         }
-        public Guid CustomerId { get; private set; }
+        public string CustomerId { get; private set; }
     }
 }
