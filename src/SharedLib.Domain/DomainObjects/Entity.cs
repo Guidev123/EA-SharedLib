@@ -1,4 +1,6 @@
-﻿namespace SharedLib.Domain.DomainObjects
+﻿using SharedLib.Domain.Messages;
+
+namespace SharedLib.Domain.DomainObjects
 {
     public abstract class Entity
     {
