@@ -46,28 +46,27 @@ namespace SharedLib.MessageBus
         }
 
         public TResponse Request<TRequest, TResponse>(TRequest request) where TRequest : IntegrationEvent
-            where TResponse : ResponseMessage
         {
             TryConnect();
             return _bus.Rpc.Request<TRequest, TResponse>(request);
         }
 
         public async Task<TResponse> RequestAsync<TRequest, TResponse>(TRequest request)
-            where TRequest : IntegrationEvent where TResponse : ResponseMessage
+            where TRequest : IntegrationEvent
         {
             TryConnect();
             return await _bus.Rpc.RequestAsync<TRequest, TResponse>(request);
         }
 
         public IDisposable Respond<TRequest, TResponse>(Func<TRequest, TResponse> responder)
-            where TRequest : IntegrationEvent where TResponse : ResponseMessage
+            where TRequest : IntegrationEvent
         {
             TryConnect();
             return _bus.Rpc.Respond(responder);
         }
 
         public IDisposable RespondAsync<TRequest, TResponse>(Func<TRequest, Task<TResponse>> responder)
-            where TRequest : IntegrationEvent where TResponse : ResponseMessage
+            where TRequest : IntegrationEvent
         {
             TryConnect();
             var disposable = _bus.Rpc.RespondAsync(responder);

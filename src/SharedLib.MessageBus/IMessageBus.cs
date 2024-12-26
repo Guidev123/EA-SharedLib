@@ -16,19 +16,15 @@ namespace SharedLib.MessageBus
         void SubscribeAsync<T>(string subscriptionId, Func<T, Task> onMessage) where T : class;
 
         TResponse Request<TRequest, TResponse>(TRequest request)
-            where TRequest : IntegrationEvent
-            where TResponse : ResponseMessage;
+            where TRequest : IntegrationEvent;
 
         Task<TResponse> RequestAsync<TRequest, TResponse>(TRequest request)
-            where TRequest : IntegrationEvent
-            where TResponse : ResponseMessage;
+            where TRequest : IntegrationEvent;
 
         IDisposable Respond<TRequest, TResponse>(Func<TRequest, TResponse> responder)
-            where TRequest : IntegrationEvent
-            where TResponse : ResponseMessage;
+            where TRequest : IntegrationEvent;
 
         IDisposable RespondAsync<TRequest, TResponse>(Func<TRequest, Task<TResponse>> responder)
-            where TRequest : IntegrationEvent
-            where TResponse : ResponseMessage;
+            where TRequest : IntegrationEvent;
     }
 }
