@@ -1,7 +1,6 @@
 ﻿using EasyNetQ;
 using Polly;
 using RabbitMQ.Client.Exceptions;
-using SharedLib.Domain.Messages.Integration;
 
 namespace SharedLib.MessageBus
 {
@@ -21,13 +20,13 @@ namespace SharedLib.MessageBus
 
         public IAdvancedBus AdvancedBus => _bus.Advanced;
 
-        public void Publish<T>(T message) where T : IntegrationEvent
+        public void Publish<T>(T message) where T : class
         {
             TryConnect();
             _bus.PubSub.Publish(message);
         }
 
-        public async Task PublishAsync<T>(T message) where T : IntegrationEvent
+        public async Task PublishAsync<T>(T message) where T : class
         {
             TryConnect();
             await _bus.PubSub.PublishAsync(message);
@@ -45,28 +44,28 @@ namespace SharedLib.MessageBus
             _bus.PubSub.SubscribeAsync(subscriptionId, onMessage);
         }
 
-        public TResponse Request<TRequest, TResponse>(TRequest request) where TRequest : IntegrationEvent
+        public TResponse Request<TRequest, TResponse>(TRequest request) where TRequest : class
         {
             TryConnect();
             return _bus.Rpc.Request<TRequest, TResponse>(request);
         }
 
         public async Task<TResponse> RequestAsync<TRequest, TResponse>(TRequest request)
-            where TRequest : IntegrationEvent
+            where TRequest : class
         {
             TryConnect();
             return await _bus.Rpc.RequestAsync<TRequest, TResponse>(request);
         }
 
         public IDisposable Respond<TRequest, TResponse>(Func<TRequest, TResponse> responder)
-            where TRequest : IntegrationEvent
+            where TRequest : class
         {
             TryConnect();
             return _bus.Rpc.Respond(responder);
         }
 
         public IDisposable RespondAsync<TRequest, TResponse>(Func<TRequest, Task<TResponse>> responder)
-            where TRequest : IntegrationEvent
+            where TRequest : class
         {
             TryConnect();
             var disposable = _bus.Rpc.RespondAsync(responder);
