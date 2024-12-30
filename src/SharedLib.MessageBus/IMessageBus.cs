@@ -1,5 +1,4 @@
 ﻿using EasyNetQ;
-using SharedLib.Domain.Messages.Integration;
 
 namespace SharedLib.MessageBus
 {

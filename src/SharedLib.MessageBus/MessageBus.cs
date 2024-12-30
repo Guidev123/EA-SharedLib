@@ -97,6 +97,10 @@ namespace SharedLib.MessageBus
             policy.Execute(TryConnect);
         }
 
-        public void Dispose() => _bus?.Dispose();
+        public void Dispose()
+        {
+            _bus?.Dispose();
+            GC.SuppressFinalize(this);
+        }
     }
 }
