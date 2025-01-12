@@ -14,5 +14,3 @@ public interface IJwtService
     Task RevokeKey(string keyId, string reason = null);
     Task<SecurityKey> GenerateNewKey();
 }
-[Obsolete("Deprecate, use IJwtServiceInstead")]
-public interface IJsonWebKeySetService : IJwtService { }

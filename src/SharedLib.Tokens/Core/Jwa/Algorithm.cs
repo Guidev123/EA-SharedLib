@@ -48,10 +48,7 @@ public class Algorithm
         Alg = algorithm;
     }
 
-    private Algorithm()
-    {
-        AlgorithmType = AlgorithmType.RSA;
-    }
+    private Algorithm() => AlgorithmType = AlgorithmType.RSA;
 
     public EncryptionAlgorithmContent EncryptionAlgorithmContent { get; set; }
 
@@ -71,10 +68,6 @@ public class Algorithm
         return this;
     }
 
-    /// <summary>
-    /// Content encryption algorithm
-    /// https://datatracker.ietf.org/doc/html/rfc7518#section-5.1
-    /// </summary>
     public Algorithm WithContentEncryption(EncryptionAlgorithmContent enc)
     {
         if (CryptographyType == CryptographyType.DigitalSignature)
