@@ -3,13 +3,7 @@ using SharedLib.Tokens.Core.Interfaces;
 
 namespace SharedLib.Tokens.Core;
 
-public class JwksBuilder : IJwksBuilder
+public class JwksBuilder(IServiceCollection services) : IJwksBuilder
 {
-
-    public JwksBuilder(IServiceCollection services)
-    {
-        Services = services ?? throw new ArgumentNullException(nameof(services));
-    }
-
-    public IServiceCollection Services { get; }
+    public IServiceCollection Services { get; } = services ?? throw new ArgumentNullException(nameof(services));
 }
