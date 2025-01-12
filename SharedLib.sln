@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedLib.MessageBus", "src\SharedLib.MessageBus\SharedLib.MessageBus.csproj", "{A34B3FCF-8CBE-4560-95F4-18F57B21A110}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedLib.Domain", "src\SharedLib.Domain\SharedLib.Domain.csproj", "{E8BD75B3-C27F-4217-80B5-877A84AED449}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedLib.Tokens", "src\SharedLib.Tokens\SharedLib.Tokens.csproj", "{507ECA8D-5324-4644-83BE-47EE14D2BDED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{E8BD75B3-C27F-4217-80B5-877A84AED449}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8BD75B3-C27F-4217-80B5-877A84AED449}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8BD75B3-C27F-4217-80B5-877A84AED449}.Release|Any CPU.Build.0 = Release|Any CPU
+		{507ECA8D-5324-4644-83BE-47EE14D2BDED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{507ECA8D-5324-4644-83BE-47EE14D2BDED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{507ECA8D-5324-4644-83BE-47EE14D2BDED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{507ECA8D-5324-4644-83BE-47EE14D2BDED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
