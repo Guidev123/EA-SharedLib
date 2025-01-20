@@ -31,3 +31,48 @@ public void ConfigureServices(IServiceCollection services)
     services.AddMessageBus(configuration.GetMessageQueueConnection("MessageBus"));
 }
 
+```
+
+### 3. `SharedLib.Tokens`
+`SharedLib.Tokens` is a library that facilitates working with JWT and JWKS using asymmetric keys.
+
+## Client-Side Configuration (Token Validation)
+
+Program.cs:
+```csharp
+builder.Services.AddJwtConfiguration(builder.Configuration);
+app.UseAuthConfiguration();
+```
+appsettings.json:
+```json
+"JwksSettings": {
+  "JwksEndpoint": "https://localhost:3000/jwks"
+},
+```
+
+## Token Issuer-Side Configuration (Token generation)
+
+Program.cs:
+```csharp
+builder.Services.AddJwksManager(x => x.Jws = Algorithm.Create(DigitalSignaturesAlgorithm.EcdsaSha256))
+    .PersistKeysToDatabaseStore<AuthenticationDbContext>()
+    .UseJwtValidation();
+
+app.UseAuthConfiguration();
+app.UseJwksDiscovery();
+```
+
+AuthenticationDbContext.cs:
+```csharp
+public class AuthenticationDbContext(DbContextOptions<AuthenticationDbContext> options)
+           : IdentityDbContext(options), ISecurityKeyContext
+{
+    public DbSet<KeyMaterial> SecurityKeys { get; set; }
+    public DbSet<RefreshToken> RefreshTokens { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+    }
+}
+```
