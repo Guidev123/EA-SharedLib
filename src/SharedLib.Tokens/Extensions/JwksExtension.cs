@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+﻿using System.Net.Http;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Protocols;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
 namespace SharedLib.Tokens.Extensions;
 
@@ -11,7 +12,7 @@ public static class JwksExtension
         var httpClient = new HttpClient(options.BackchannelHttpHandler ?? new HttpClientHandler())
         {
             Timeout = options.BackchannelTimeout,
-            MaxResponseContentBufferSize = 1024 * 1024 * 10 
+            MaxResponseContentBufferSize = 1024 * 1024 * 10 // 10 MB 
         };
 
         options.ConfigurationManager = new ConfigurationManager<OpenIdConnectConfiguration>(

@@ -11,8 +11,8 @@ public class JwkOptions
         KeepFor = cacheTime ?? TimeSpan.FromMinutes(15);
         Audience = audience;
     }
-    public string Issuer { get; set; }
-    public string JwksUri { get; set; }
+    public string Issuer { get; set; } = string.Empty;
+    public string JwksUri { get; set; } = string.Empty;
     public TimeSpan KeepFor { get; set; } = TimeSpan.FromMinutes(15);
-    public string Audience { get; set; }
+    public string Audience { get; set; } = string.Empty;
 }

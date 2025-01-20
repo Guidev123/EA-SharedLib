@@ -2,8 +2,14 @@
 
 namespace SharedLib.Tokens.Extensions;
 
-public sealed class JwkList(JsonWebKeySet jwkTaskResult)
+public sealed class JwkList
 {
-    public DateTime When { get; set; } = DateTime.Now;
-    public JsonWebKeySet Jwks { get; set; } = jwkTaskResult;
+    public JwkList(JsonWebKeySet jwkTaskResult)
+    {
+        Jwks = jwkTaskResult;
+        When = DateTime.Now;
+    }
+
+    public DateTime When { get; set; }
+    public JsonWebKeySet Jwks { get; set; }
 }
