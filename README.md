@@ -24,6 +24,7 @@ This repository contains two common libraries to support the implementation of m
 - **Dependency Injection**: The library includes its own implementation of dependency injection to configure and manage communication with RabbitMQ.
 - **Ease of Use**: Simplifies the publishing and subscribing of events and messages in an intuitive way, without the need to manually manage complex communication with RabbitMQ.
 
+Program.cs:
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
@@ -31,6 +32,12 @@ public void ConfigureServices(IServiceCollection services)
     services.AddMessageBus(configuration.GetMessageQueueConnection("MessageBus"));
 }
 
+```
+appsettings.json:
+```json
+"MessageBus": {
+  "MessageQueueConnection": "host=localhost:5672;publisherConfirms=true;timeout=10"
+},
 ```
 
 ### 3. `SharedLib.Tokens`
