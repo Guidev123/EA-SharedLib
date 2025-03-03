@@ -43,6 +43,12 @@ appsettings.json:
 ### 3. `SharedLib.Tokens`
 `SharedLib.Tokens` is a library that facilitates working with JWT and JWKS using asymmetric keys.
 
+```cli
+dotnet add package SharedLib.Tokens --version 1.0.0
+```
+
+https://www.nuget.org/packages/SharedLib.Tokens/
+
 ## Client-Side Configuration (Token Validation)
 
 Program.cs:
