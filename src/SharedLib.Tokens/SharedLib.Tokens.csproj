@@ -3,6 +3,15 @@
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
+	  <Version>1.0.0</Version>
+	  <Authors>Guilherme</Authors>
+	  <Company>GR-Code</Company>
+	  <Description>Library that facilitates working with JWT and JWKS using asymmetric keys.</Description>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <RepositoryUrl>https://github.com/Guidev123/EA-SharedLib</RepositoryUrl>
+	  <PackageProjectUrl>https://github.com/Guidev123/EA-SharedLib</PackageProjectUrl>
+	  <PackageTags>csharp;dotnet;nuget</PackageTags>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
